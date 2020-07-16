@@ -5,6 +5,8 @@
       <h4 class="card-title">{{stock.Symbol}}</h4>
       <h6 class="card-subtitle mb-2 text-muted">{{stock.Name}}</h6>
       <p class="card-text">{{stock.description}}.</p>
+      <badge type="info">{{stock.Sector}}</badge>
+      <badge type="success">{{stock.Industry}}</badge>
       <div v-if="stock.owned">
         <div class="dropdown-divider"></div>
         <p class="card-text">You own {{stock.owned.num}} stocks of {{stock.symbol}}</p>
@@ -21,6 +23,7 @@
 </template>
 
 <script>
+import { Badge } from "src/components";
 export default {
   name: "stockCard",
   props: {
@@ -28,6 +31,9 @@ export default {
       type: Object,
       description: "stock data returned from api"
     }
+  },
+  components: {
+    Badge
   }
 };
 </script>
